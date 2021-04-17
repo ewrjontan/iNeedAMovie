@@ -9,13 +9,13 @@ function Home(){
                 <h3 className="">Having trouble finding something to watch?</h3>
                 <h3 className="pt-3">We can help you find the perfect movie.</h3>
                 
-                <Button color="primary" size="lg" block className="col-md-5 mx-auto mt-5">Lets Get Started</Button>
+                <Button color="primary" size="lg" block className="col-sm-8 col-md-5 mx-auto mt-5">Lets Get Started</Button>
             </div>
             
             <div className="home-div py-0 py-md-5">
                 <h3 className="pt-5">Need something to watch ASAP? Go ahead, skip the line.</h3>
                 
-                <Button color="light" size="lg" block className="col-md-5 mx-auto my-5">Just Pick A Movie</Button>
+                <Button color="light" size="lg" block className="col-sm-8 col-md-5 mx-auto my-5">Just Pick A Movie</Button>
             </div>
             
 
