@@ -1,5 +1,6 @@
 //import React, { Component } from 'react';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 function Home(){
@@ -15,7 +16,9 @@ function Home(){
             <div className="home-div py-0 py-md-5">
                 <h3 className="pt-5">Need something to watch ASAP? Go ahead, skip the line.</h3>
                 
-                <Button color="light" size="lg" block className="col-sm-8 col-md-5 mx-auto my-5">Just Pick A Movie</Button>
+                <Link to="/justpick" className="link">
+                    <Button color="light" size="lg" block className="col-sm-8 col-md-5 mx-auto my-5">Just Pick A Movie</Button>
+                </Link>
             </div>
             
 

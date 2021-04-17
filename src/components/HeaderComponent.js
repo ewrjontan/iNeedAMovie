@@ -27,38 +27,36 @@ class Header extends Component{
                         <div className="row col col-xl-8 mx-auto justify-content-between">
                             <NavbarBrand className="col" href="/">
                                 <h1 className="d-none d-sm-block mx-auto pl-5">I Need A Movie</h1>
-                                <h5 className="d-flex d-sm-none mx-auto pl-4 pt-2">I Need A Movie</h5>
+                                <h5 className="d-flex d-sm-none mx-auto pt-2">I Need A Movie</h5>
                             </NavbarBrand>               
                             
-                            <NavbarToggler className="" onClick={this.toggleNav} />
+                            <NavbarToggler onClick={this.toggleNav} />
                         </div>
-
-                        <Collapse isOpen={this.state.isNavOpen} navbar>
-                                <Nav navbar>
-                                    <NavItem>
-                                        <NavLink className="nav-link" to="/home">Home</NavLink>
-                                    </NavItem>
-
-                                    <NavItem>
-                                        <NavLink className="nav-link" to="/trending">Trending</NavLink>
-                                    </NavItem>
-
-                                    <NavItem>
-                                        <NavLink className="nav-link" to="/">Just Pick</NavLink>
-                                    </NavItem>
-
-                                    <NavItem>
-                                        <NavLink className="nav-link" to="/useraccount">Account Settings</NavLink>
-                                    </NavItem>
-
-                                    <NavItem>
-                                        <NavLink className="nav-link" to="/issues">Report An Issue</NavLink>
-                                    </NavItem>
-                                </Nav>
-                        </Collapse>
-
-
                     </div>
+
+                    <Collapse isOpen={this.state.isNavOpen} navbar>
+                        <Nav navbar>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/home">Home</NavLink>
+                            </NavItem>
+
+                            <NavItem>
+                                <NavLink className="nav-link" to="/trending">Trending</NavLink>
+                            </NavItem>
+
+                            <NavItem>
+                                <NavLink className="nav-link" to="/justpick">Just Pick</NavLink>
+                            </NavItem>
+
+                            <NavItem>
+                                <NavLink className="nav-link" to="/useraccount">Account Settings</NavLink>
+                            </NavItem>
+
+                            <NavItem>
+                                <NavLink className="nav-link" to="/issues">Report An Issue</NavLink>
+                            </NavItem>
+                        </Nav>
+                    </Collapse>
                 </Navbar>
 
             </React.Fragment>
