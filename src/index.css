@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
 
-html,body{
+body{
   background-image: url("./images/background-img-dark.png");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .link:link{
@@ -49,6 +50,7 @@ code {
   font-family: "Fredoka One", Arial, sans-serif;
   text-shadow: 2px 2px 4px #000000;
 }
+
 
 
 .home-container{

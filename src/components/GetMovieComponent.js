@@ -7,12 +7,20 @@ import { Link } from 'react-router-dom';
 
 function JustPick(props){
 
-    let randomMovie = props.movies[Math.floor(Math.random() * props.movies.length)];
 
-    console.log(randomMovie);
 
     return (
-        <div className="container my-5 pb-5  pb-md-0 ">
+        <div>
+            <h1>Hello!</h1>
+        </div>
+    );
+}
+
+
+
+export default JustPick;
+
+/*<div className="container my-5 pb-5  pb-md-0 ">
             <h1 className="text-white">We Recommend:</h1>
             <Card className="my-5">
                 <div className="row col col-md-10 mx-auto my-1 my-md-5">
@@ -39,10 +47,4 @@ function JustPick(props){
 
             </Card>
             
-        </div>
-    );
-}
-
-
-
-export default JustPick;
+        </div>*/
