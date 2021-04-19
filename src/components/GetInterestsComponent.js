@@ -15,7 +15,7 @@ class GetInterests extends Component{
     constructor(props){
         super(props);
         this.state = {
-            //userSelectedGenres: []
+            userSelectedGenres: []
         };
     }
 

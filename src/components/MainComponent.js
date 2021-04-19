@@ -18,8 +18,7 @@ class Main extends Component{
         super(props);
         this.state = {
             movies: MOVIES,
-            genres: GENRES,
-            userSelectedGenres: []
+            genres: GENRES
         };
     }
 
@@ -37,7 +36,7 @@ class Main extends Component{
                 <Switch>
                     <Route path='/home' component={HOMEPAGE} />
 
-                    <Route exact path='/getinterests' render={() => <GetInterests movies={this.state.movies} userSelectedGenres={this.state.userSelectedGenres} />} />
+                    <Route exact path='/getinterests' render={() => <GetInterests movies={this.state.movies} />} />
                     <Route exact path='/justpick' render={() => <JustPick movies={this.state.movies} />} />
                     <Route exact path='/getmovie' render={() => <GetMovie userData={this.state.userSelectedGenres}/>} />
 
