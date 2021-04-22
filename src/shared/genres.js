@@ -33,7 +33,7 @@ export const GENRES = [
     },
     {
         id: 9,
-        genre: "Science Fiction"
+        genre: "Sci-Fi"
     },
     {
         id: 10,
