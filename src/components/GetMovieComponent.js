@@ -1,24 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardText, CardImgOverlay, CardTitle, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 
+class GetMovie extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            genre: this.props.location.state
+        };
 
+    }
 
-function JustPick(props){
+    render(){
+        return (
+            <div className="bg-light">
+                <h1>We Recommend {this.state.genre}</h1>
+            </div>
+        );
+    }
 
-
-
-    return (
-        <div>
-            <h1>Hello!</h1>
-        </div>
-    );
 }
 
 
 
-export default JustPick;
+export default GetMovie;
+
+//props.location.state.genre;
 
 /*<div className="container my-5 pb-5  pb-md-0 ">
             <h1 className="text-white">We Recommend:</h1>

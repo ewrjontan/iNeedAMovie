@@ -3,6 +3,7 @@ import Header from './HeaderComponent';
 import Home from './HomeComponent';
 import GetInterests from './GetInterestsComponent';
 import GetMovie from './GetMovieComponent';
+import RecommendedMovie from './RecommendedMovieComponent';
 
 import JustPick from './JustPickComponent';
 import Footer from './FooterComponent';
@@ -38,7 +39,7 @@ class Main extends Component{
 
                     <Route exact path='/getinterests' render={() => <GetInterests movies={this.state.movies} />} />
                     <Route exact path='/justpick' render={() => <JustPick movies={this.state.movies} />} />
-                    <Route exact path='/getmovie' render={() => <GetMovie userData={this.state.userSelectedGenres}/>} />
+                    <Route path='/recommended' component={RecommendedMovie} />
 
                     <Redirect to='/home' />
 
@@ -58,3 +59,8 @@ class Main extends Component{
 
 
 export default Main;
+
+/*<Route exact path='/getmovie' render={() => <GetMovie genre={this.state.randomUserGenre}/>} />*/
+
+//                    <Route path='/home' component={GetMovie} />
+
