@@ -4,6 +4,7 @@ import Home from './HomeComponent';
 import GetInterests from './GetInterestsComponent';
 import GetMovie from './GetMovieComponent';
 import RecommendedMovie from './RecommendedMovieComponent';
+//import Trending from './TrendingComponent';
 
 import JustPick from './JustPickComponent';
 import Footer from './FooterComponent';
@@ -40,6 +41,7 @@ class Main extends Component{
                     <Route exact path='/getinterests' render={() => <GetInterests movies={this.state.movies} />} />
                     <Route exact path='/justpick' render={() => <JustPick movies={this.state.movies} />} />
                     <Route path='/recommended' component={RecommendedMovie} />
+
 
                     <Redirect to='/home' />
 

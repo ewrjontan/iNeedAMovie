@@ -17,6 +17,7 @@ class GetInterests extends Component{
     constructor(props){
         super(props);
         this.state = {
+            containerBg: "bg-light",
             userSelectedGenres: [],
             genres: GENRES,
             randomUserGenre: null,
@@ -67,7 +68,8 @@ class GetInterests extends Component{
 
     getMovieTitles = () => {
         //removes the buttons and loads movie card
-        this.setState({goButtonClicked: true})
+        this.setState({goButtonClicked: true});
+        this.setState({containerBg: ""});
 
         console.log(`Genre: ${this.state.randomUserGenre}`);
         let genre = this.state.randomUserGenre;
@@ -119,13 +121,21 @@ class GetInterests extends Component{
                     let releaseDate = movie.title.year;
                     let genre = movie.genres.join(", ");
                     let rating = movie.ratings.rating;
-                    let summary = movie.plotSummary.text;
+
+                    let summary = "";
+
+                    if (movie.plotSummary.text){
+                        summary = movie.plotSummary.text;
+                    }else{
+                        summary = movie.plotOutline.text;
+                    }
+
                     let website = `https://www.imdb.com ${movie.title.id}`;
                     let image = movie.title.image.url;
                 
                     return(
                         <React.Fragment>
-                            <h1 className="text-black">We Recommend:</h1>
+                            <h1 className="text-white">We Recommend:</h1>
                             <Card className="my-5">
                                 <div className="row col col-md-10 mx-auto my-1 my-md-5">
                                     <CardImg src={image} alt="Movie Poster" className="col-8 col-sm-3 mx-auto mt-5 mt-md-1"/>
@@ -178,21 +188,20 @@ class GetInterests extends Component{
                                 })}
                             </div>
                         </div>
+
+                        <Button color="primary" size="lg" className="col-12 col-md-2 mb-5" onClick={props.getMovieTitles}>Go</Button>
+        
                     </React.Fragment>
                 );
             }
         }
 
         return (
-            <div className="container my-5 pb-5 pb-md-0 bg-light">
+            <div className={`container my-5 pb-5 pb-md-0 ${this.state.containerBg}`}>
 
-                <RenderButtonsOrMovie genres={this.state.genres} genreButtonClick={this.genreButtonClick} userSelectedGenres={this.state.userSelectedGenres} goButtonClicked={this.state.goButtonClicked} movie={this.state.imdbMovieTitle} GetMovieInfo={this.GetMovieInfo} movieInfo={this.state.movieInfo}
+                <RenderButtonsOrMovie genres={this.state.genres} genreButtonClick={this.genreButtonClick} userSelectedGenres={this.state.userSelectedGenres} goButtonClicked={this.state.goButtonClicked} movie={this.state.imdbMovieTitle} GetMovieInfo={this.GetMovieInfo} movieInfo={this.state.movieInfo} getMovieTitles={this.getMovieTitles}
                 />
                 
-                <Button color="primary" size="lg" className="col-12 col-md-2" onClick={this.getMovieTitles}>Go</Button>
-                
-                <p>Selected: {JSON.stringify(this.state.userSelectedGenres)}</p>
-                <p>Random genre to use: {JSON.stringify(this.state.randomUserGenre)}</p>
             </div>
         );
     }

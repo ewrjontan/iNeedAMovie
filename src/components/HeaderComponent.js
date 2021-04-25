@@ -41,11 +41,11 @@ class Header extends Component{
                             </NavItem>
 
                             <NavItem>
-                                <NavLink className="nav-link" to="/trending">Trending</NavLink>
+                                <NavLink className="nav-link" to="/getinterests">Let's Find Movie</NavLink>
                             </NavItem>
 
                             <NavItem>
-                                <NavLink className="nav-link" to="/justpick">Just Pick</NavLink>
+                                <NavLink className="nav-link" to="/justpick">Just Pick Something</NavLink>
                             </NavItem>
 
                             <NavItem>
