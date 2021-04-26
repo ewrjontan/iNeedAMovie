@@ -122,13 +122,15 @@ class GetInterests extends Component{
                     let genre = movie.genres.join(", ");
                     let rating = movie.ratings.rating;
 
-                    let summary = "";
+                    let summary;
 
-                    if (movie.plotSummary.text){
+                    if (movie.hasOwnProperty("plotSummary")){
                         summary = movie.plotSummary.text;
-                    }else{
+                    }else if (movie.hasOwnProperty("plotOutline")){
                         summary = movie.plotOutline.text;
-                    }
+                    }else{
+                        summary = "No summary available"
+                    };
 
                     let website = `https://www.imdb.com ${movie.title.id}`;
                     let image = movie.title.image.url;
