@@ -4,7 +4,7 @@ import { Card, CardImg, CardBody, CardText, CardImgOverlay, CardTitle, Button } 
 
 
 import Home from './HomeComponent';
-import GetMovie from './GetMovieComponent';
+//import GetMovie from './GetMovieComponent';
 import { GENRES } from '../shared/genres'
 //import { GENRESIMDB } from '../shared/genresIMDB'
 

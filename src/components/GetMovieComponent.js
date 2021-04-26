@@ -7,52 +7,75 @@ class GetMovie extends Component{
     constructor(props){
         super(props);
         this.state = {
-            genre: this.props.location.state
+            imdbMovieTitle: null,
+            movieInfo: null
         };
+    }
+
+    FetchRandomMovie = () => {
+        const regex = /(?<=\/).+?(?=\/)/g;
+
+        fetch("https://imdb8.p.rapidapi.com/title/get-most-popular-movies?homeCountry=US&purchaseCountry=US&currentCountry=US", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "6f03151c4amsh6857709831845abp1023ddjsn86870f36be32",
+                "x-rapidapi-host": "imdb8.p.rapidapi.com"
+	            }
+        })
+        .then(response => response.json()).then(result => {
+            console.log(result);
+            
+            return this.setState({imdbMovieTitle: result[Math.floor(Math.random() * result.length)].match(regex)[1]})
+
+            //return this.setState({imdbMovieTitle: result[Math.floor(Math.random() * result.length)].match(regex)[1]}, this.GetMovieInfo)
+
+        })
+        .catch(err => {
+            console.error(err);
+        });
 
     }
+
+    GetMovieInfo = () => {
+
+        let title= this.state.imdbMovieTitle;
+        
+        console.log("title: " + title);
+
+        fetch(`https://imdb8.p.rapidapi.com/title/get-overview-details?tconst=${title}&currentCountry=US`, 
+            {"method": "GET", "headers": {"x-rapidapi-key": "6f03151c4amsh6857709831845abp1023ddjsn86870f36be32", "x-rapidapi-host": "imdb8.p.rapidapi.com"}})
+            .then(response => response.json()).then(result => {
+                console.log('Success:', result);
+                //this.setState({imdbMovieTitle: result[Math.floor(Math.random() * result.length)]}); xxx CHANGE ME!!!!!!!!!!! xxxxx
+                this.setState({movieInfo: result})
+        })
+            .catch(err => {
+                console.error(err);
+        });
+    }
+    
+
 
     render(){
-        return (
-            <div className="bg-light">
-                <h1>We Recommend {this.state.genre}</h1>
-            </div>
-        );
-    }
+        if (this.state.imdbMovieTitle === null){
+            this.FetchRandomMovie();
+        }
 
+
+
+
+
+        
+
+        return (
+            <React.Fragment>
+                <h1 className="text-light">{this.state.imdbMovieTitle}</h1>
+            </React.Fragment>    
+        );
+
+    } 
 }
 
 
 
 export default GetMovie;
-
-//props.location.state.genre;
-
-/*<div className="container my-5 pb-5  pb-md-0 ">
-            <h1 className="text-white">We Recommend:</h1>
-            <Card className="my-5">
-                <div className="row col col-md-10 mx-auto my-1 my-md-5">
-                    <CardImg src={randomMovie.image} alt="Movie Poster" className="col-8 col-sm-3 mx-auto mt-5 mt-md-1"/>
-                    <CardBody className="align-self-center">
-                        <CardTitle className="col"><h1>{randomMovie.title}</h1></CardTitle>
-                        <CardText>
-                            <p>{`Genre: ${randomMovie.genre} `}</p>
-                            <p>{`Rating: ${randomMovie.rating} `}</p>
-                        </CardText>
-                    </CardBody>
-                </div>
-                    
-                <CardText className="mb-4 px-4 px-md-5">
-                    <p>{randomMovie.summary}</p>
-                </CardText>
-
-                <div className="row mx-auto col-12 col-md-4 mb-5">
-                    <h6 className="col-6 align-self-center">Not feeling it?</h6>
-                    <Link to="/justpick" className="link">
-                        <Button color="primary" className="col">Try Again</Button>
-                    </Link>
-                </div>
-
-            </Card>
-            
-        </div>*/

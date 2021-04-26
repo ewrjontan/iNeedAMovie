@@ -2,6 +2,9 @@ import React from 'react';
 import { Card, CardImg, CardBody, CardText, CardImgOverlay, CardTitle, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import GetMovie from './GetMovieComponent';
+
+
 
 
 
@@ -14,6 +17,9 @@ function JustPick(props){
     return (
         <div className="container my-5 pb-5  pb-md-0 ">
             <h1 className="text-white">We Recommend:</h1>
+            
+            <GetMovie/>
+            
             <Card className="my-5">
                 <div className="row col col-md-10 mx-auto my-1 my-md-5">
                     <CardImg src={randomMovie.image} alt="Movie Poster" className="col-8 col-sm-3 mx-auto mt-5 mt-md-1"/>
