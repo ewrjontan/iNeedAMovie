@@ -10,40 +10,15 @@ import GetMovie from './GetMovieComponent';
 
 function JustPick(props){
 
-    let randomMovie = props.movies[Math.floor(Math.random() * props.movies.length)];
+    //let randomMovie = props.movies[Math.floor(Math.random() * props.movies.length)];
 
-    console.log(randomMovie);
+    //console.log(randomMovie);
 
     return (
         <div className="container my-5 pb-5  pb-md-0 ">
             <h1 className="text-white">We Recommend:</h1>
             
             <GetMovie />
-            
-            <Card className="my-5">
-                <div className="row col col-md-10 mx-auto my-1 my-md-5">
-                    <CardImg src={randomMovie.image} alt="Movie Poster" className="col-8 col-sm-3 mx-auto mt-5 mt-md-1"/>
-                    <CardBody className="align-self-center">
-                        <CardTitle className="col"><h1>{randomMovie.title}</h1></CardTitle>
-                        <CardText>
-                            <p>{`Genre: ${randomMovie.genre} `}</p>
-                            <p>{`Rating: ${randomMovie.rating} `}</p>
-                        </CardText>
-                    </CardBody>
-                </div>
-                    
-                <CardText className="mb-4 px-4 px-md-5">
-                    <p>{randomMovie.summary}</p>
-                </CardText>
-
-                <div className="row mx-auto col-12 col-md-4 mb-5">
-                    <h6 className="col-6 align-self-center">Not feeling it?</h6>
-                    <Link to="/justpick" className="link">
-                        <Button color="primary" className="col">Try Again</Button>
-                    </Link>
-                </div>
-
-            </Card>
             
         </div>
     );

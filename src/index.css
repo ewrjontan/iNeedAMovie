@@ -72,6 +72,9 @@ code {
   width: 100%;
 }
 
+span{
+  font-weight: bold;
+}
 
 .footer-main{
   background-color: #cc0000;
