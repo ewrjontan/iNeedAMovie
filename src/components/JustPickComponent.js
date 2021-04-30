@@ -18,7 +18,7 @@ function JustPick(props){
         <div className="container my-5 pb-5  pb-md-0 ">
             <h1 className="text-white">We Recommend:</h1>
             
-            <GetMovie/>
+            <GetMovie />
             
             <Card className="my-5">
                 <div className="row col col-md-10 mx-auto my-1 my-md-5">

@@ -12,13 +12,19 @@ class GetMovie extends Component{
         };
     }
 
+    componentDidMount(){
+        this.FetchRandomMovie();
+
+    }
+
+
     FetchRandomMovie = () => {
         const regex = /(?<=\/).+?(?=\/)/g;
 
         fetch("https://imdb8.p.rapidapi.com/title/get-most-popular-movies?homeCountry=US&purchaseCountry=US&currentCountry=US", {
             "method": "GET",
             "headers": {
-                "x-rapidapi-key": "6f03151c4amsh6857709831845abp1023ddjsn86870f36be32",
+                "x-rapidapi-key": process.env.REACT_APP_IMDB_API_KEY,
                 "x-rapidapi-host": "imdb8.p.rapidapi.com"
 	            }
         })
@@ -57,16 +63,7 @@ class GetMovie extends Component{
 
 
     render(){
-        if (this.state.imdbMovieTitle === null){
-            this.FetchRandomMovie();
-        }
-
-
-
-
-
-        
-
+       
         return (
             <React.Fragment>
                 <h1 className="text-light">{this.state.imdbMovieTitle}</h1>
