@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
 
+/*html, body{
+  height:100vh;
+}*/
+
 body{
   background-image: url("./images/background-img-dark.png");
   background-position: center;
@@ -92,4 +96,8 @@ span{
 .footer-link:hover {
   text-decoration: none;
   color: white;
+}
+
+#loading{
+padding-top: 150px;
 }

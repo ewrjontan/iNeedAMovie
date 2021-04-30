@@ -15,8 +15,8 @@ function JustPick(props){
     //console.log(randomMovie);
 
     return (
-        <div className="container my-5 pb-5  pb-md-0 ">
-            <h1 className="text-white">We Recommend:</h1>
+        <div className="container my-5 pb-5 pb-md-0" style={{minHeight: "75vh"}} >
+            
             
             <GetMovie />
             

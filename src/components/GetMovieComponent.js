@@ -102,29 +102,32 @@ class GetMovie extends Component{
             let image = movie.title.image.url;
 
             return (
-                <Card className="my-5">
-                    <div className="row col col-md-10 mx-auto my-1 my-md-5">
-                        <CardImg src={image} alt="Movie Poster" className="col-8 col-sm-3 mx-auto mt-5 mt-md-1"/>
-                        <CardBody className="align-self-center">
-                            <CardTitle className="col"><h1>{title}</h1></CardTitle>
-                            <CardText><span>Genre: </span>{genre}</CardText>
-                            <CardText><span>Average Rating: </span>{rating}</CardText>
-                            <a href={website}>
-                                <Button outline color="secondary">Get More Info</Button>
-                            </a>
-                        </CardBody>
-                    </div>
-                        
-                    <CardText className="mb-4 px-4 px-md-5">{summary}</CardText>
-    
-                    <div className="row mx-auto col-12 col-md-4 mb-5">
-                        <h6 className="col-6 align-self-center">Not feeling it?</h6>
-                        <Link to="/justpick" className="link">
-                            <Button color="primary" className="col">Try Again</Button>
-                        </Link>
-                    </div>
-    
-                </Card>  
+                <React.Fragment>
+                    <h1 className="text-white">We Recommend:</h1>
+                    <Card className="my-5">
+                        <div className="row col col-md-10 mx-auto my-1 my-md-5">
+                            <CardImg src={image} alt="Movie Poster" className="col-8 col-sm-3 mx-auto mt-5 mt-md-1"/>
+                            <CardBody className="align-self-center">
+                                <CardTitle className="col"><h1>{title}</h1></CardTitle>
+                                <CardText><span>Genre: </span>{genre}</CardText>
+                                <CardText><span>Average Rating: </span>{rating}</CardText>
+                                <a href={website}>
+                                    <Button outline color="secondary">Get More Info</Button>
+                                </a>
+                            </CardBody>
+                        </div>
+                            
+                        <CardText className="mb-4 px-4 px-md-5">{summary}</CardText>
+        
+                        <div className="row mx-auto col-12 col-md-4 mb-5">
+                            <h6 className="col-6 align-self-center">Not feeling it?</h6>
+                            <Link to="/justpick" className="link">
+                                <Button color="primary" className="col">Try Again</Button>
+                            </Link>
+                        </div>
+        
+                    </Card>  
+                </React.Fragment>
             );
 
         }else{
