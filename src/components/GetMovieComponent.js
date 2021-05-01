@@ -11,10 +11,27 @@ class GetMovie extends Component{
             imdbMovieTitle: null,
             movieInfo: null
         };
+
+
     }
 
     componentDidMount(){
-        this.FetchRandomMovie();
+        if (this.props.type === "random"){
+            console.log("Getting random movie");
+            //this.FetchRandomMovie();
+
+        }else if (this.props.type === "genre"){
+            console.log("Getting movie based on favorite genres");
+
+        }
+
+        
+    }
+
+    TryAgainClick = () => {
+        console.log("Try again is clicked");
+        //add callback to fetchrandommovie function
+        return this.setState({movieInfo: null});
     }
 
 
@@ -57,7 +74,6 @@ class GetMovie extends Component{
         })
             .then(response => response.json()).then(result => {
                 console.log('Success:', result);
-                //this.setState({imdbMovieTitle: result[Math.floor(Math.random() * result.length)]}); xxx CHANGE ME!!!!!!!!!!! xxxxx
                 this.setState({movieInfo: result}, this.RenderCard)
         })
             .catch(err => {
@@ -69,21 +85,19 @@ class GetMovie extends Component{
     RenderCard = () => {
         if (this.state.movieInfo != null){
 
-            console.log("render card is working");
-
             let movie = this.state.movieInfo;
 
             let title = movie.title.title;
-            console.log(title);
+            //console.log(title);
 
             let releaseDate = movie.title.year;
-            console.log(releaseDate);
+            //console.log(releaseDate);
 
             let genre = movie.genres.join(", ");
-            console.log(genre);
+            //console.log(genre);
 
             let rating = movie.ratings.rating;
-            console.log(rating);
+            //console.log(rating);
 
 
             let summary;
@@ -95,8 +109,6 @@ class GetMovie extends Component{
             }else{
                 summary = "No summary available"
             };
-            console.log(summary);
-
 
             let website = `https://www.imdb.com${movie.title.id}`;
             let image = movie.title.image.url;
@@ -121,9 +133,9 @@ class GetMovie extends Component{
         
                         <div className="row mx-auto col-12 col-md-4 mb-5">
                             <h6 className="col-6 align-self-center">Not feeling it?</h6>
-                            <Link to="/justpick" className="link">
-                                <Button color="primary" className="col">Try Again</Button>
-                            </Link>
+                            
+                            <Button color="primary" className="col" onClick={this.TryAgainClick}>Try Again</Button>
+                           
                         </div>
         
                     </Card>  
@@ -152,3 +164,12 @@ class GetMovie extends Component{
 
 
 export default GetMovie;
+
+/*
+this.FetchRandomMovie()
+
+
+<Link to="/justpick" className="link">
+    <Button color="primary" className="col">Try Again</Button>
+</Link>
+*/ 
