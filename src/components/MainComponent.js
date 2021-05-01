@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import Header from './HeaderComponent';
 import Home from './HomeComponent';
 import GetInterests from './GetInterestsComponent';
-import GetMovie from './GetMovieComponent';
-import RecommendedMovie from './RecommendedMovieComponent';
-//import Trending from './TrendingComponent';
 import ReportIssues from './ReportIssuesComponent';
 
 
@@ -39,21 +36,15 @@ class Main extends Component{
 
                 <Switch>
                     <Route path='/home' component={HOMEPAGE} />
+                    
+                    <Route path='/getinterests' component={GetInterests} />
 
-                    <Route exact path='/getinterests' render={() => <GetInterests movies={this.state.movies} />} />
-                    <Route exact path='/justpick' render={() => <JustPick movies={this.state.movies} />} />
+                    <Route path='/justpick' component={JustPick} />
+
                     <Route path='/issues' component={ReportIssues} />
-
-
-                    <Route path='/recommended' component={RecommendedMovie} />
-
-
 
                     <Redirect to='/home' />
 
-                    
-
-                    
                 </Switch>
 
                 <Footer />
@@ -72,3 +63,6 @@ export default Main;
 
 //                    <Route path='/home' component={GetMovie} />
 
+//                    <Route exact path='/justpick' render={() => <JustPick movies={this.state.movies} />} />
+
+//                    <Route exact path='/getinterests' render={() => <GetInterests movies={this.state.movies} />} />

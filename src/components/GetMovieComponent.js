@@ -12,33 +12,36 @@ class GetMovie extends Component{
             movieInfo: null
         };
 
-
     }
 
     componentDidMount(){
-        if (this.props.type === "random"){
-            console.log("Getting random movie");
-            //this.FetchRandomMovie();
-
-        }else if (this.props.type === "genre"){
-            console.log("Getting movie based on favorite genres");
-
-        }
-
-        
+        this.FetchMovie(this.props.genre);
     }
 
     TryAgainClick = () => {
         console.log("Try again is clicked");
-        //add callback to fetchrandommovie function
-        return this.setState({movieInfo: null});
+        return this.setState({movieInfo: null}, this.FetchMovie(this.props.genre))
+        
     }
 
 
-    FetchRandomMovie = () => {
+    FetchMovie = (genre) => {
         const regex = /(?<=\/).+?(?=\/)/g;
+        let imdbUrl;
+        console.log("passed property: " + genre)
 
-        fetch("https://imdb8.p.rapidapi.com/title/get-most-popular-movies?homeCountry=US&purchaseCountry=US&currentCountry=US", {
+        if (genre === "random"){
+            console.log("Getting random movie");
+            imdbUrl = "https://imdb8.p.rapidapi.com/title/get-most-popular-movies?homeCountry=US&purchaseCountry=US&currentCountry=US";
+
+        }else{
+            console.log("Getting movie based on favorite genres");
+            imdbUrl = "https://imdb8.p.rapidapi.com/title/get-popular-movies-by-genre?genre=%2Fchart%2Fpopular%2Fgenre%2F"+ genre;
+        }
+
+        console.log(imdbUrl);
+
+        fetch(imdbUrl, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": process.env.REACT_APP_IMDB_API_KEY,
@@ -48,16 +51,14 @@ class GetMovie extends Component{
         .then(response => response.json()).then(result => {
             console.log(result);
             
-            //return this.setState({imdbMovieTitle: result[Math.floor(Math.random() * result.length)].match(regex)[1]})
-
             return this.setState({imdbMovieTitle: result[Math.floor(Math.random() * result.length)].match(regex)[1]}, this.GetMovieInfo)
 
         })
         .catch(err => {
             console.error(err);
         });
-
     }
+
 
     GetMovieInfo = () => {
 
@@ -120,16 +121,16 @@ class GetMovie extends Component{
                         <div className="row col col-md-10 mx-auto my-1 my-md-5">
                             <CardImg src={image} alt="Movie Poster" className="col-8 col-sm-3 mx-auto mt-5 mt-md-1"/>
                             <CardBody className="align-self-center">
-                                <CardTitle className="col"><h1>{title}</h1></CardTitle>
-                                <CardText><span>Genre: </span>{genre}</CardText>
+                                <CardTitle className="col mb-5"><h1>{title}</h1></CardTitle>
                                 <CardText><span>Average Rating: </span>{rating}</CardText>
+                                <CardText><span>Genre: </span>{genre}</CardText>
                                 <a href={website}>
-                                    <Button outline color="secondary">Get More Info</Button>
+                                    <Button outline color="secondary" className="mt-2">Get More Info</Button>
                                 </a>
                             </CardBody>
                         </div>
                             
-                        <CardText className="mb-4 px-4 px-md-5">{summary}</CardText>
+                        <CardText className="mt-0 px-4 px-md-5">{summary}</CardText>
         
                         <div className="row mx-auto col-12 col-md-4 mb-5">
                             <h6 className="col-6 align-self-center">Not feeling it?</h6>
