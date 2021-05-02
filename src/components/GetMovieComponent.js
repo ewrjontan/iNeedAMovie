@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardText, CardImgOverlay, CardTitle, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 
 class GetMovie extends Component{
@@ -116,30 +117,32 @@ class GetMovie extends Component{
 
             return (
                 <React.Fragment>
-                    <h1 className="text-white">We Recommend:</h1>
-                    <Card className="my-5">
-                        <div className="row col col-md-10 mx-auto my-1 my-md-5">
-                            <CardImg src={image} alt="Movie Poster" className="col-8 col-sm-3 mx-auto mt-5 mt-md-1"/>
-                            <CardBody className="align-self-center">
-                                <CardTitle className="col mb-5"><h1>{title}</h1></CardTitle>
-                                <CardText><span>Average Rating: </span>{rating}</CardText>
-                                <CardText><span>Genre: </span>{genre}</CardText>
-                                <a href={website}>
-                                    <Button outline color="secondary" className="mt-2">Get More Info</Button>
-                                </a>
-                            </CardBody>
-                        </div>
+                    <Fade in>
+                        <h1 className="text-white">We Recommend:</h1>
+                        <Card className="my-5">
+                            <div className="row col col-md-10 mx-auto my-1 my-md-5">
+                                <CardImg src={image} alt="Movie Poster" className="col-8 col-sm-3 mx-auto mt-5 mt-md-1"/>
+                                <CardBody className="align-self-center">
+                                    <CardTitle className="col mb-5"><h1>{title}</h1></CardTitle>
+                                    <CardText><span>Average Rating: </span>{rating}</CardText>
+                                    <CardText><span>Genre: </span>{genre}</CardText>
+                                    <a href={website}>
+                                        <Button outline color="secondary" className="mt-2">Get More Info</Button>
+                                    </a>
+                                </CardBody>
+                            </div>
+                                
+                            <CardText className="mt-0 px-4 px-md-5">{summary}</CardText>
+            
+                            <div className="row mx-auto col-12 col-md-4 mb-5">
+                                <h6 className="col-6 align-self-center">Not feeling it?</h6>
+                                
+                                <Button color="primary" className="col" onClick={this.TryAgainClick}>Try Again</Button>
                             
-                        <CardText className="mt-0 px-4 px-md-5">{summary}</CardText>
-        
-                        <div className="row mx-auto col-12 col-md-4 mb-5">
-                            <h6 className="col-6 align-self-center">Not feeling it?</h6>
-                            
-                            <Button color="primary" className="col" onClick={this.TryAgainClick}>Try Again</Button>
-                           
-                        </div>
-        
-                    </Card>  
+                            </div>
+            
+                        </Card>  
+                    </Fade>
                 </React.Fragment>
             );
 

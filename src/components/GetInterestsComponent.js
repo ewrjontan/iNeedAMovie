@@ -5,6 +5,8 @@ import Home from './HomeComponent';
 import GetMovie from './GetMovieComponent';
 import { GENRES } from '../shared/genres'
 //import { GENRESIMDB } from '../shared/genresIMDB'
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+
 
 class GetInterests extends Component{
     constructor(props){
