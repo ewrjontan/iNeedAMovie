@@ -13,6 +13,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { GENRES } from '../shared/genres'
 import { MOVIES } from '../shared/movies';
 
+import { Fade } from 'react-animation-components'
+
 
 
 class Main extends Component{
@@ -34,18 +36,20 @@ class Main extends Component{
         return (
             <div>
                 <Header />
-                    <Switch>
-                        <Route path='/home' component={HOMEPAGE} />
-                        
-                        <Route path='/getinterests' component={GetInterests} />
+                    <Fade in>
+                        <Switch>
+                            <Route path='/home' component={HOMEPAGE} />
+                            
+                            <Route path='/getinterests' component={GetInterests} />
 
-                        <Route path='/justpick' component={JustPick} />
+                            <Route path='/justpick' component={JustPick} />
 
-                        <Route path='/issues' component={ReportIssues} />
+                            <Route path='/issues' component={ReportIssues} />
 
-                        <Redirect to='/home' />
+                            <Redirect to='/home' />
 
-                    </Switch>
+                        </Switch>
+                    </Fade>
 
                 <Footer />
         

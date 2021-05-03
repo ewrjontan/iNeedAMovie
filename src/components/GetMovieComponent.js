@@ -122,11 +122,11 @@ class GetMovie extends Component{
                         <Card className="my-5">
                             <div className="row col col-md-10 mx-auto my-1 my-md-5">
                                 <CardImg src={image} alt="Movie Poster" className="col-8 col-sm-3 mx-auto mt-5 mt-md-1"/>
-                                <CardBody className="align-self-center">
-                                    <CardTitle className="col mb-5"><h1>{title}</h1></CardTitle>
+                                <CardBody className="align-self-center col-sm-9">
+                                    <CardTitle className=" mb-5"><h1>{title}</h1></CardTitle>
                                     <CardText><span>Average Rating: </span>{rating}</CardText>
                                     <CardText><span>Genre: </span>{genre}</CardText>
-                                    <a href={website}>
+                                    <a href={website} target="_blank">
                                         <Button outline color="secondary" className="mt-2">Get More Info</Button>
                                     </a>
                                 </CardBody>

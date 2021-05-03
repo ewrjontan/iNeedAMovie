@@ -22,7 +22,7 @@ class GetInterests extends Component{
     }
 
     goButtonClick = () => {
-        this.setState({containerBg: ""});
+        //this.setState({containerBg: ""});
         this.setState({goButtonClicked: true});
     }
 
@@ -71,7 +71,7 @@ class GetInterests extends Component{
                 
             }else{//renders buttons for selecting genres
                 return(
-                    <React.Fragment>
+                    <div className="container bg-light mb-5">
                         <h2 className="text-dark py-5">In order to make the best suggestions, we'll need to know what your interests are.</h2>
                         <h4 className="pb-5">Please select your favorite genres.</h4>
                         <div className="mx-auto col mb-5">
@@ -87,13 +87,13 @@ class GetInterests extends Component{
                         </div>
 
                         <Button color="primary" size="lg" className="col-12 col-md-2 mb-5" onClick={props.goButtonClick}>Go</Button>
-                    </React.Fragment>
+                    </div>
                 );
             }
         }
 
         return (
-            <div className={`container mt-5 pb-5 pb-md-0 ${this.state.containerBg}`} style={{minHeight: "80vh"}} >
+            <div className={`container mt-5 pb-5 pb-md-0`} style={{minHeight: "80vh"}} >
             
                 <RenderButtonsOrMovie genres={this.state.genres} genreButtonClick={this.genreButtonClick} userSelectedGenres={this.state.userSelectedGenres} goButtonClicked={this.state.goButtonClicked} goButtonClick={this.goButtonClick} randomUserGenre={this.state.randomUserGenre}/>
             </div>
@@ -109,7 +109,7 @@ export default GetInterests;
 <RenderButtonsOrMovie genres={this.state.genres} genreButtonClick={this.genreButtonClick} userSelectedGenres={this.state.userSelectedGenres} goButtonClicked={this.state.goButtonClicked} movie={this.state.imdbMovieTitle} GetMovieInfo={this.GetMovieInfo} movieInfo={this.state.movieInfo} getMovieTitles={this.getMovieTitles}
                 />
 
-
+${this.state.containerBg}`
 
 function RenderGenreButtons(props){
 
