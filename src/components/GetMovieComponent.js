@@ -165,15 +165,4 @@ class GetMovie extends Component{
     } 
 }
 
-
-
 export default GetMovie;
-
-/*
-this.FetchRandomMovie()
-
-
-<Link to="/justpick" className="link">
-    <Button color="primary" className="col">Try Again</Button>
-</Link>
-*/ 

@@ -24,9 +24,6 @@ function RecommendedMovie(props){
     let genre = props.location.state.genre;
     console.log(genre);
 
-    //let movieRecommendation = GetMovieFromIMDB(genre);
-    //console.log(movieRecommendation);
-
     return (
         <div className="container my-5 pb-5 pb-md-0 ">
             <h1 className="text-white">We Recommend:</h1>

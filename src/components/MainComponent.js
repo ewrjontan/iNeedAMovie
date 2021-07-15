@@ -59,17 +59,4 @@ class Main extends Component{
     } 
 }
 
-
-
-//export default Main;
-
 export default Main;
-
-
-/*<Route exact path='/getmovie' render={() => <GetMovie genre={this.state.randomUserGenre}/>} />*/
-
-//                    <Route path='/home' component={GetMovie} />
-
-//                    <Route exact path='/justpick' render={() => <JustPick movies={this.state.movies} />} />
-
-//                    <Route exact path='/getinterests' render={() => <GetInterests movies={this.state.movies} />} />

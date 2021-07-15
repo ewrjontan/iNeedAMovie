@@ -10,6 +10,4 @@ function JustPick(props){
     );
 }
 
-
-
 export default JustPick;

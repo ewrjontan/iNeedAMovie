@@ -22,7 +22,6 @@ class GetInterests extends Component{
     }
 
     goButtonClick = () => {
-        //this.setState({containerBg: ""});
         this.setState({goButtonClicked: true});
     }
 
@@ -54,13 +53,8 @@ class GetInterests extends Component{
     render(){
         
         function RenderButtonsOrMovie(props){
-            //console.log(props.genresSelected);
 
             if (props.goButtonClicked){//renders card with movie recommendation
-
-                //sets state for movieInfo
-                //props.GetMovieInfo(props.movie);
-
                 
                 return(
                     <React.Fragment>
@@ -101,36 +95,4 @@ class GetInterests extends Component{
     }
 }
 
-
-
 export default GetInterests;
-
-/*backup before adding render if else for buttons or poster
-<RenderButtonsOrMovie genres={this.state.genres} genreButtonClick={this.genreButtonClick} userSelectedGenres={this.state.userSelectedGenres} goButtonClicked={this.state.goButtonClicked} movie={this.state.imdbMovieTitle} GetMovieInfo={this.GetMovieInfo} movieInfo={this.state.movieInfo} getMovieTitles={this.getMovieTitles}
-                />
-
-${this.state.containerBg}`
-
-function RenderGenreButtons(props){
-
-            return(
-                <div className="mx-auto col mb-5">
-                    <div className="row col mx-auto">
-                        {props.genres.map(genre => {
-                            return(
-                                
-                            <Button key={genre.id} outline color="secondary" size="lg" className="col-12 col-md-5 mx-auto mb-2" onClick={() => props.genreButtonClick(genre.name)} active={props.userSelectedGenres.includes(genre.name)}>{genre.name}</Button>
-                                
-                            )
-                        })}
-                    </div>
-                </div>
-            );
-        }*/
-
-/*
-<Link to={{pathname: '/recommended', state: {genre: this.state.randomUserGenre}}} className="link">
-                    <Button color="primary" size="lg" className="col-12 col-md-2" onClick={this.goButtonClick}>Go</Button>
-                </Link>*/
-
-                //<GetMovie genre="random"/>
