@@ -16,7 +16,7 @@ function Home(){
                 
             </div>
             
-            <div className="home-div py-0 py-md-5">
+            <div className="home-div pb-5">
                 <h3 className="pt-5">Need something to watch ASAP? Go ahead, skip the line.</h3>
                 
                 <Link to="/justpick" className="link">

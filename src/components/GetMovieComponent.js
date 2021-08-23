@@ -49,6 +49,7 @@ class GetMovie extends Component{
 	        }
         })
         .then(response => response.json()).then(result => {
+            console.log("my result: ");
             console.log(result);
             
             return this.setState({imdbMovieTitle: result[Math.floor(Math.random() * result.length)].match(regex)[1]}, this.GetMovieInfo)
