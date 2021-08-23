@@ -26,7 +26,7 @@ class GetMovie extends Component{
 
 
     FetchMovie = (genre) => {
-        //const regex = /(?<=\/).+?(?=\/)/g;
+        //const regex = /(?<=\/).+?(?=\/)/g; does not work on ios
         const regex = /[\/]*[^\/]+[\/]([^\/]+)/;
 
         let imdbUrl;
@@ -51,14 +51,6 @@ class GetMovie extends Component{
 	        }
         })
         .then(response => response.json()).then(result => {
-            console.log("my result: ");
-            console.log(result);
-
-            console.log("imdb title without regex");
-            console.log(result[Math.floor(Math.random() * result.length)]);
-
-            console.log("imdb title with regex");
-            console.log(result[Math.floor(Math.random() * result.length)].match(regex)[1]);
             
             return this.setState({imdbMovieTitle: result[Math.floor(Math.random() * result.length)].match(regex)[1]}, this.GetMovieInfo)
 
