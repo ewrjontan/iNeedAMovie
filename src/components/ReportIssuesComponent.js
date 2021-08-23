@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Input, Label, Col } from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 
 class ReportIssues extends Component{

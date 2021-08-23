@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Card, CardImg, CardBody, CardText, CardImgOverlay, CardTitle, Button } from 'reactstrap';
-import Home from './HomeComponent';
+import { Button } from 'reactstrap';
 import GetMovie from './GetMovieComponent';
 import { GENRES } from '../shared/genres'
 //import { GENRESIMDB } from '../shared/genresIMDB'
-import { FadeTransform, Fade, Stagger } from 'react-animation-components';
-
 
 class GetInterests extends Component{
     constructor(props){

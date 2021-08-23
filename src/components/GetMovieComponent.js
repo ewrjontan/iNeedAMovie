@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardBody, CardText, CardImgOverlay, CardTitle, Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Card, CardImg, CardBody, CardText, CardTitle, Button } from 'reactstrap';
 import { Loading } from './LoadingComponent';
-import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import { Fade } from 'react-animation-components';
 
 
 class GetMovie extends Component{
@@ -123,10 +122,10 @@ class GetMovie extends Component{
                             <div className="row col col-md-10 mx-auto my-1 my-md-5">
                                 <CardImg src={image} alt="Movie Poster" className="col-8 col-sm-3 mx-auto mt-5 mt-md-1"/>
                                 <CardBody className="align-self-center col-sm-9">
-                                    <CardTitle className=" mb-5"><h1>{title}</h1></CardTitle>
+                                    <CardTitle className=" mb-5"><h1>{title} ({releaseDate})</h1></CardTitle>
                                     <CardText><span>Average Rating: </span>{rating}</CardText>
                                     <CardText><span>Genre: </span>{genre}</CardText>
-                                    <a href={website} target="_blank">
+                                    <a href={website} target="_blank" rel="noreferrer">
                                         <Button outline color="secondary" className="mt-2">Get More Info</Button>
                                     </a>
                                 </CardBody>
